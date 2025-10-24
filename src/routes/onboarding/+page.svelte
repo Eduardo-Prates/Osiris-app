@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import OnboardingSlide from '$lib/components/onboarding-slide.svelte';
+	import OnboardingSlide from '$lib/components/onboarding.svelte';
 	const car = '/images/car.png';
 	const chat = '/images/chat.png';
 	const profile = '/images/profile.png';
 
-	let currentSlide = $state(0);
+	let currentSlide = 0;
 
 	const slides = [
 		{

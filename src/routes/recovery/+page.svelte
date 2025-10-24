@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { Mail } from 'lucide-svelte';
 
-	let email = $state('');
-	let emailSent = $state(false);
+	let email = '';
+	let emailSent = false;
 
 	function handleRecovery() {
 		console.log('[v0] Password recovery for:', email);
@@ -17,7 +16,7 @@
 <div class="flex min-h-screen flex-col bg-background px-6 py-12">
 	<!-- Logo -->
 	<div class="mb-8 flex items-center gap-2">
-		<div class="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
+		<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20">
 			<svg class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="currentColor">
 				<circle cx="12" cy="12" r="3" />
 				<circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2" />
@@ -33,9 +32,15 @@
 
 	{#if !emailSent}
 		<!-- Recovery form -->
-		<form onsubmit={(e) => { e.preventDefault(); handleRecovery(); }} class="flex flex-col gap-4">
+		<form
+			onsubmit={(e) => {
+				e.preventDefault();
+				handleRecovery();
+			}}
+			class="flex flex-col gap-4"
+		>
 			<div class="relative">
-				<Mail class="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+
 				<input
 					type="email"
 					bind:value={email}
@@ -62,10 +67,22 @@
 		</button>
 	{:else}
 		<!-- Success message -->
-		<div class="flex flex-col items-center gap-4 rounded-lg border border-border bg-card p-6 text-center">
+		<div
+			class="flex flex-col items-center gap-4 rounded-lg border border-border bg-card p-6 text-center"
+		>
 			<div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary/20">
-				<svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+				<svg
+					class="h-8 w-8 text-primary"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M5 13l4 4L19 7"
+					/>
 				</svg>
 			</div>
 			<div>
