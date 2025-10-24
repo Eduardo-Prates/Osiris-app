@@ -35,7 +35,7 @@
 
 	<!-- Signup form -->
 	<form
-		onsubmit={(e) => {
+		on:submit={(e) => {
 			e.preventDefault();
 			handleSignup();
 		}}
@@ -107,7 +107,7 @@
 			{/if}
 			<button
 				type="button"
-				onclick={() => (showPassword = !showPassword)}
+				on:click={() => (showPassword = !showPassword)}
 				class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
 			>
 				{#if showPassword}
@@ -139,7 +139,7 @@
 			{/if}
 			<button
 				type="button"
-				onclick={() => (showConfirmPassword = !showConfirmPassword)}
+				on:click={() => (showConfirmPassword = !showConfirmPassword)}
 				class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
 			>
 				{#if showConfirmPassword}

@@ -28,7 +28,7 @@
 
 	<!-- Login form -->
 	<form
-		onsubmit={(e) => {
+		on:submit={(e) => {
 			e.preventDefault();
 			handleLogin();
 		}}
@@ -45,7 +45,7 @@
 		</div>
 
 		<div class="relative">
-			
+
 			{#if showPassword}
 				<input
 					type="text"
@@ -65,7 +65,7 @@
 			{/if}
 			<button
 				type="button"
-				onclick={() => (showPassword = !showPassword)}
+				on:click={() => (showPassword = !showPassword)}
 				class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
 			>
 				{#if showPassword}
@@ -123,9 +123,8 @@
 
 	<!-- Sign up link -->
 	<p class="mt-6 text-center text-sm text-muted-foreground">
-		Não tem uma conta? <a href="/cadastro" class="font-medium text-primary hover:underline"
+		Não tem uma conta? <a href="/register" class="font-medium text-primary hover:underline"
 			>Cadastre-se</a
 		>
 	</p>
 </div>
-
